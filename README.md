@@ -19,4 +19,12 @@ OS: Debian
 HOW TO USE
 ==========
 
-java -jar cortana.jar local.prop custom.cna
+
+I recommend trying to run this from within kali linux.
+
+
+1. Git clone 
+2. Move files to /usr/share/armitage/scripts
+3. Make the directory if it isnt there (mkdir /usr/share/armitage/scripts)
+4. Fire up the teamserver, or armitage.
+5. java -jar cortana.jar local.prop ./scripts/custom.cna
