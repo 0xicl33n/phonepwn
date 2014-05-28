@@ -15,3 +15,8 @@ Place GenIP.sh in /opt
 
 
 OS: Debian
+
+HOW TO USE
+==========
+
+java -jar cortana.jar local.prop custom.cna
