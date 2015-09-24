@@ -26,19 +26,15 @@ $success = 0;
 sub checkList {
 	db_sync();
 	println("[*] Comparing database hosts against blacklist....")
-	if (@host_addresses in $blacklistRange) {
-		$success = 0;
-		println("[!] One or more hosts detected in blacklist. Quitting!")
-		quit();
-	else {
-		println("[*] No hosts in blacklist, we're good to go.")
-		$success = 1;
-	}
+	if (@host_addresses, $1 isin $blacklistRange) {
 };
 
 sub startSniffin {
 	on host_add {
-		sleep(10 * 1000);	
+		if ($1 isin $blacklistRange){
+			pass
+		}
+		sleep(10 * 1000);
 		println("[*] msfScanning New Host TCP/UDP on $1");
 		$console = console();
 		#$console = open_console_tab("TCP/UDPscan_$1"); #Debug use
@@ -63,7 +59,7 @@ sub startSniffin {
 			PASS_FILE => '/opt/framework3/msf3/data/wordlists/unix_passwords.txt'));
 	}
 
-	on credential_add {
+	on credential_add {	
 		println("This credential works: " . join(" ", @_));
 	}
 
