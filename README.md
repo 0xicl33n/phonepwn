@@ -8,12 +8,12 @@ http://www.fastandeasyhacking.com/download/cortana/cortana_tutorial.pdf
 
 This is my attempt at doing just that.
 
-Place GenIP.sh in /opt
 
 
-OS: Kali (any version)
+OS: Kali Linux Nethunter (or kali on chroot on any other phone)
 
 Requires:
+- A working Kali environment
 - Metasploit
 - Armitage
 
@@ -21,10 +21,11 @@ Requires:
 HOW TO USE
 ==========
 
-1. Git clone 
-2. Move files to /usr/share/armitage/scripts
-3. Make the directory if it isnt there (mkdir /usr/share/armitage/scripts)
-4. Fire up the teamserver, or armitage.
-5. Load up another terminal and type:
+1. Git clone
+2. Be sure to put GenIP.sh in `/opt`
+3. Move files to `/usr/share/armitage/scripts`
+4. Make the directory if it isnt there (`mkdir /usr/share/armitage/scripts`)
+5. Fire up the teamserver, or armitage.
+6. Load up another terminal and type:
 
 `java -jar cortana.jar local.prop ./scripts/custom.cna`
